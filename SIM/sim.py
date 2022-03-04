@@ -24,11 +24,11 @@ if __name__ == '__main__':
     #-- Create the object
     plane = Plane(connection_string)
 
-    
+    alt = 40
     #-- Arm and takeoff
-    if not plane.is_armed(): plane.arm_and_takeoff(altitude=100)
+    if not plane.is_armed(): plane.arm_and_takeoff(altitude=alt)
 
-    avoidWP = [34.0793936, -117.6002312, 100]
+    avoidWP = [34.0420985, -117.8161812, alt]
     plane.run()
     
     while plane.is_armed():

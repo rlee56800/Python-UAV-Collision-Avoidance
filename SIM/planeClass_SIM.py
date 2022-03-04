@@ -27,7 +27,7 @@ import serial
 
 ser = serial.Serial(
     
-    port='COM9',
+    port='COM5',
     baudrate = 9600,
     parity=serial.PARITY_NONE,
     stopbits=serial.STOPBITS_ONE,
@@ -452,7 +452,7 @@ class Plane():
                 
     def clear_all_rc_override(self):               #--- clears all the rc channel override
         self.vehicle.channels.overrides = {}
-
+    
     def prediction(self):
         times = 0        
         distX = 0
@@ -465,6 +465,7 @@ class Plane():
         YAvoidTolerance = 10.0
         ZAvoidTolerance = 10.0
  
+        # copied
         while not vehicle.armed:
             print("Not Predicting")
             time.sleep(10)
@@ -595,6 +596,7 @@ class Plane():
         return futurePosX
 
     def send_ADSB_data(self):
+        # todo: only for intruder
         
         print("In send ADSB funtion\n")
         #msg = "In send ADSB funtion\n"
@@ -614,8 +616,9 @@ class Plane():
             time.sleep(5.0)
     
     def receive_ADSB_data(self):
+        # todo: doesn't store anything (yet)
         print("In receive_ADSB_data function")
-        while True:    
+        while True:
             msg = ser.readline().decode()
             print(msg)
             time.sleep(0.1)

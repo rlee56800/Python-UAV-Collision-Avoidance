@@ -4,7 +4,7 @@ import time
 #setting up xbee communication
 ser = serial.Serial(
     
-    port='COM9',
+    port='COM5',
     baudrate = 9600,
     parity=serial.PARITY_NONE,
     stopbits=serial.STOPBITS_ONE,
